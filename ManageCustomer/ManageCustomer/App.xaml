@@ -1,0 +1,15 @@
+﻿<Application x:Class="ManageCustomer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ManageCustomer"
+             StartupUri="Frontend/Customer/CustomerUserControl.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Backend/Settings/Blue.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Backend/Settings/ToolBoxResurceDictionary.xaml" />
+                <ResourceDictionary Source="Backend/Settings/RubyDataGridStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,306 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="DataGridCheckBox" TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+        <Setter Property="Margin" Value="0" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsReadOnly, RelativeSource={RelativeSource AncestorType=DataGridCell}}" Value="True">
+                <Setter Property="IsHitTestVisible" Value="False" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MetroColumnHeaderGripperStyle"
+           TargetType="{x:Type Thumb}">
+        <Setter Property="Width"
+                Value="8" />
+        <Setter Property="Background"
+                Value="{DynamicResource GrayBrush5}" />
+        <Setter Property="Cursor"
+                Value="SizeWE" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border Padding="{TemplateBinding Padding}"
+                            Background="Transparent">
+                        <Rectangle HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   Width="1"
+                                   Fill="{TemplateBinding Background}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MetroRowHeaderGripperStyle" TargetType="{x:Type Thumb}">
+        <Setter Property="Height" Value="6" />
+        <Setter Property="Background" Value="{DynamicResource GrayBrush5}" />
+        <Setter Property="Cursor" Value="SizeNS" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border Padding="{TemplateBinding Padding}" Background="Transparent">
+                        <Rectangle VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Height="1" Fill="{TemplateBinding Background}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RubyDataGridColumnHeader" TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="MinWidth" Value="0" />
+        <Setter Property="MinHeight" Value="26" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="10,4,4,7" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,2" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainBlackFontColor}" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Border x:Name="BackgroundBorder"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Grid.ColumnSpan="2"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" />
+                        <ContentPresenter Grid.Column="0" x:Name="HeaderContent"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Margin="{TemplateBinding Padding}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Path x:Name="SortArrow"
+                              Visibility="Collapsed"
+                              Stretch="Fill"
+                              Grid.Column="1"
+                              Width="8"
+                              Height="10"
+                              Margin="0,0,8,2"
+                              VerticalAlignment="Center"
+                              RenderTransformOrigin="0.5,0.5"
+                              Fill="{DynamicResource ThemeColorBrush}" />
+                        <Thumb Grid.Column="0" x:Name="PART_LeftHeaderGripper"
+                               HorizontalAlignment="Left"
+                               HorizontalContentAlignment="Left"
+                               Background="Transparent"
+                               Style="{StaticResource MetroColumnHeaderGripperStyle}" />
+                        <Thumb x:Name="PART_RightHeaderGripper"
+                               HorizontalAlignment="Right"
+                               HorizontalContentAlignment="Right"
+                               Style="{StaticResource MetroColumnHeaderGripperStyle}"
+                               Grid.Column="1" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="SortDirection"
+                                 Value="{x:Null}">
+                            <Setter TargetName="BackgroundBorder"
+                                    Property="Background"
+                                    Value="{DynamicResource WhiteBrush}" />
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="SortDirection"
+                                           Value="{x:Null}" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="BackgroundBorder"
+                                    Property="Background"
+                                    Value="{DynamicResource GrayBrush8}" />
+                        </MultiTrigger>
+                        <Trigger Property="SortDirection"
+                                 Value="Ascending">
+                            <Setter TargetName="SortArrow"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                            <Setter TargetName="SortArrow"
+                                    Property="Data"
+                                    Value="F1 M 34,57L 42,57L 42,32.25L 52,42.25L 52,31.75L 38,17.75L 24,31.75L 24,42.25L 34,32.25L 34,57 Z " />
+                        </Trigger>
+                        <Trigger Property="SortDirection"
+                                 Value="Descending">
+                            <Setter TargetName="SortArrow"
+                                    Property="Visibility"
+                                    Value="Visible" />
+                            <Setter TargetName="SortArrow"
+                                    Property="Data"
+                                    Value="F1 M 42,19.0002L 34,19.0002L 34,43.7502L 24,33.7502L 24,44.2502L 38,58.2502L 52,44.2502L 52,33.7502L 42,43.7502L 42,19.0002 Z " />
+                            <Setter TargetName="SortArrow"
+                                    Property="Margin"
+                                    Value="0,0,8,0" />
+                        </Trigger>
+                        <Trigger Property="DisplayIndex"
+                                 Value="0">
+                            <Setter Property="Visibility"
+                                    Value="Collapsed"
+                                    TargetName="PART_LeftHeaderGripper" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="False">
+                            <Setter Property="Foreground"
+                                    Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MetroDataGridRowHeader"
+           TargetType="{x:Type DataGridRowHeader}">
+        <Setter Property="HorizontalContentAlignment"
+                Value="Stretch" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource GrayBrush5}" />
+        <Setter Property="BorderThickness"
+                Value="0,0,1,0" />
+        <Setter Property="Margin"
+                Value="0,0,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridRowHeader}">
+                    <Grid>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}"
+                                Margin="{TemplateBinding Margin}"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+                        </Border>
+                        <Thumb x:Name="PART_TopHeaderGripper"
+                               VerticalContentAlignment="Top"
+                               VerticalAlignment="Top"
+                               Background="Transparent"
+                               Style="{StaticResource MetroRowHeaderGripperStyle}" />
+                        <Thumb x:Name="PART_BottomHeaderGripper"
+                               VerticalContentAlignment="Bottom"
+                               VerticalAlignment="Bottom"
+                               Style="{StaticResource MetroRowHeaderGripperStyle}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter Property="Background"
+                                    Value="{DynamicResource AccentColorBrush3}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- CellStyle -->
+    <Style x:Key="MetroDataGridCell"
+           TargetType="{x:Type DataGridCell}">
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="Segoe UI"></Setter>
+        <Setter Property="Padding" Value="10,4,10,4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                          Margin="{TemplateBinding Padding}"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                            
+                        />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DataGridIsSelectedBrush}"></Setter>
+                <Setter Property="BorderBrush" Value="{DynamicResource DataGridIsSelectedBrush }"></Setter>
+                <Setter Property="Foreground" Value="{DynamicResource DataGridIsSelectedForegroundBrush}"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- RowStyle -->
+    <!-- Don't set the MinHeight or Height property, use the MinRowHeight or RowHeight property on DataGrid style! -->
+    <Style x:Key="MetroDataGridRow" TargetType="{x:Type DataGridRow}">
+        <Setter Property="Foreground" Value="{DynamicResource BlackBrush}" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DataGridIsSelectedBrush}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True"></Condition>
+                    <Condition Property="IsSelected" Value="False"></Condition>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource DataGridMouseOverBrush}"></Setter>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RubyDataGrid" TargetType="{x:Type DataGrid}">
+        <Setter Property="MinRowHeight" Value="28" />
+        <Setter Property="IsReadOnly" Value="True"></Setter>
+        <Setter Property="Background" Value="{DynamicResource WhiteBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainBlackFontColor}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="SelectionMode" Value="Single"></Setter>
+        <Setter Property="Margin" Value="0,18,40,28"></Setter>
+        <Setter Property="VerticalGridLinesBrush" Value="Transparent"></Setter>
+        <Setter Property="HorizontalGridLinesBrush" Value="#D4D4D4"></Setter>
+        <Setter Property="AlternatingRowBackground" Value="White"></Setter>
+        <Setter Property="ColumnHeaderStyle" Value="{StaticResource RubyDataGridColumnHeader}" />
+        <Setter Property="RowHeaderStyle" Value="{StaticResource MetroDataGridRowHeader}" />
+        <Setter Property="CellStyle" Value="{StaticResource MetroDataGridCell}" />
+        <Setter Property="RowStyle" Value="{StaticResource MetroDataGridRow}" />
+        <Setter Property="DropLocationIndicatorStyle">
+            <Setter.Value>
+                <Style TargetType="Separator">
+                    <Setter Property="Background"
+                            Value="{DynamicResource GrayBrush7}" />
+                    <Setter Property="Width"
+                            Value="2" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Separator">
+                                <Rectangle Fill="{TemplateBinding Background}"
+                                           Height="{TemplateBinding Height}"
+                                           Width="{TemplateBinding Width}" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
