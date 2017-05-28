@@ -9,18 +9,18 @@ namespace ManageCustomer.Backend.Models
         public AddressType Adressart { get; set; }
 
         //[Required]
-        public string Strasse { get; set; }
+        public string Street { get; set; }
 
-        public string Hausnummer { get; set; }
+        public string HouseNumber { get; set; }
 
-        public string Postleitzahl { get; set; }
+        public string PostalCode { get; set; }
 
         //[Required]
-        public string Ort { get; set; }
+        public string Place { get; set; }
 
-        public string Land { get; set; }
+        public string Country { get; set; }
 
-        public string Bemerkung { get; set; }
+        public string Comment { get; set; }
 
         #region IDataErrorInfo
         //[NotMapped]
@@ -36,18 +36,18 @@ namespace ManageCustomer.Backend.Models
             {
                 string result = null;
 
-                if (columnName == "Strasse")
+                if (columnName == "Street")
                 {
-                    if (string.IsNullOrEmpty(Strasse))
+                    if (string.IsNullOrEmpty(Street))
                     {
-                        result = "Es muss zwingend ein Strasse eingegeben werden";
+                        result = "A street name must be specified";
                     }
                 }
-                if (columnName == "Ort")
+                if (columnName == "Place")
                 {
-                    if (string.IsNullOrEmpty(Ort))
+                    if (string.IsNullOrEmpty(Place))
                     {
-                        result = "Es muss zwingend ein Ort eingegeben werden";
+                        result = "A place must be specified";
                     }
                 }
 
@@ -72,8 +72,8 @@ namespace ManageCustomer.Backend.Models
     /// </summary>
     public enum AddressType
     {
-        Hauptadresse,
-        Rechnungsadresse,
-        Lieferadresse
+        GeneralAddress,
+        BillingAddress,
+        DeliveryAddress
     }
 }

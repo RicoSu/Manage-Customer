@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>address_book-user_symbol_blue.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -184,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Backend\Icons\address_book-add2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="address_book-user_symbol_blue.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

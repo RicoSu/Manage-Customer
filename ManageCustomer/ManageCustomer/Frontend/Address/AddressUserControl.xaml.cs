@@ -13,7 +13,6 @@ namespace ManageCustomer.Frontend.Address
     /// </summary>
     public partial class AddressUserControl : UserControl
     {
-        //someonesid steht dafür das man anhand der id alleine nicht sagen kann von welcher Tabelle dieser Wert kommt.
         //public AddressUserControl(int someonesid, Backend.Models.People.AddressOwner addressOwner)
         public AddressUserControl()
         {
@@ -102,12 +101,12 @@ namespace ManageCustomer.Frontend.Address
                 {
                     var cachedAddress = GetSelcetedCustomerAddress();
 
-                    extendedtext = cachedAddress.Strasse + " " + cachedAddress.Hausnummer + Environment.NewLine +
-                                   cachedAddress.Postleitzahl + " " + cachedAddress.Ort;
+                    extendedtext = cachedAddress.Street + " " + cachedAddress.HouseNumber + Environment.NewLine +
+                                   cachedAddress.PostalCode + " " + cachedAddress.Place;
                 }
 
 
-                if (MetroMessageBox.Show("Achtung!", "Möchten Sie diese Adresse wirklich löschen?", extendedtext, MetroMessageBox.MessageBoxButtons.YesNo) == MetroMessageBox.MessageBoxResults.Yes)
+                if (MetroMessageBox.Show("Attention!", "Are you sure you want to delete this address??", extendedtext, MetroMessageBox.MessageBoxButtons.YesNo) == MetroMessageBox.MessageBoxResults.Yes)
                 {
                     if (_addressOwner == AddressOwner.Customer)
                     {
@@ -123,13 +122,13 @@ namespace ManageCustomer.Frontend.Address
         {
             if (AddressDataGrid.SelectedItems.Count == 0)
             {
-                MetroMessageBox.Show("Auswahl falsch", "Wählen Sie zuerst eine Adresse aus.");
+                MetroMessageBox.Show("Wrong selection", "First select an address.");
             }
             else
             {
                 if (AddressDataGrid.SelectedItems.Count > 1)
                 {
-                    MetroMessageBox.Show("Auswahl falsch", "Wählen Sie nur 1 Adress aus!");
+                    MetroMessageBox.Show("Wrong selection", "Select only 1 address!");
                 }
                 else
                 {
@@ -175,7 +174,7 @@ namespace ManageCustomer.Frontend.Address
             {
                 e.Column.Visibility = Visibility.Collapsed;
             }
-            if (e.Column.Header.ToString().ToUpper() == "BEMERKUNG")
+            if (e.Column.Header.ToString().ToUpper() == "COMMENT")
             {
                 e.Column.Visibility = Visibility.Collapsed;
             }
@@ -193,7 +192,7 @@ namespace ManageCustomer.Frontend.Address
 
         private void SetCustomerItemsCount()
         {
-            AddressItemsCount.Text = "Einträge: " + AddressDataGrid.Items.Count;
+            AddressItemsCount.Text = "Entries: " + AddressDataGrid.Items.Count;
         }
 
         private void SelectSingleItem()

@@ -54,12 +54,12 @@ namespace ManageCustomer.Frontend.Address
 
                     //KundennummerTextBox.Text = _customerAddress.Cusotmer.Name;
                     AdressartComboBox.Text = _customerAddress.Adressart.ToString();
-                    StrasseTextBox.Text = _customerAddress.Strasse;
-                    HausnummerTextBox.Text = _customerAddress.Hausnummer;
-                    PostleitzahlTextBox.Text = _customerAddress.Postleitzahl;
-                    OrtTextBox.Text = _customerAddress.Ort;
-                    LandTextBox.Text = _customerAddress.Land;
-                    BemerkungTextBox.Text = _customerAddress.Bemerkung;
+                    StrasseTextBox.Text = _customerAddress.Street;
+                    HausnummerTextBox.Text = _customerAddress.HouseNumber;
+                    PostleitzahlTextBox.Text = _customerAddress.PostalCode;
+                    OrtTextBox.Text = _customerAddress.Place;
+                    LandTextBox.Text = _customerAddress.Country;
+                    BemerkungTextBox.Text = _customerAddress.Comment;
                 }
             }
         }
@@ -103,7 +103,7 @@ namespace ManageCustomer.Frontend.Address
             {
                 if (_addressOwner == AddressOwner.Customer)
                 {
-                    var customerAddress = new CustomerAddress { Customer = Database.GetSingelCustomerData(_someonesId), Adressart = (AddressType)Enum.Parse(typeof(AddressType), AdressartComboBox.Text, true), Strasse = StrasseTextBox.Text, Hausnummer = HausnummerTextBox.Text, Postleitzahl = PostleitzahlTextBox.Text, Ort = OrtTextBox.Text, Land = LandTextBox.Text, Bemerkung = BemerkungTextBox.Text };
+                    var customerAddress = new CustomerAddress { Customer = Database.GetSingelCustomerData(_someonesId), Adressart = (AddressType)Enum.Parse(typeof(AddressType), AdressartComboBox.Text, true), Street = StrasseTextBox.Text, HouseNumber = HausnummerTextBox.Text, PostalCode = PostleitzahlTextBox.Text, Place = OrtTextBox.Text, Country = LandTextBox.Text, Comment = BemerkungTextBox.Text };
 
                     if (_newData)
                     {

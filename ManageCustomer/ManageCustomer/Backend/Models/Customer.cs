@@ -10,21 +10,21 @@ namespace ManageCustomer.Backend.Models
         // Id = Kundennummer
         public int Id { get; set; }
 
-        public string Anrede { get; set; }
+        public string Salutation { get; set; }
 
         //[Required]
         //[StringLength(50)]
-        public string Vorname { get; set; }
+        public string FirstName { get; set; }
 
         //[Required]
         //[StringLength(50)]
         public string Name { get; set; }
 
-        public string Zusatz { get; set; }
+        public string Addition { get; set; }
 
-        public string Firma { get; set; }
+        public string Company { get; set; }
 
-        public string Telefon { get; set; }
+        public string Phone { get; set; }
 
         public string Mobil { get; set; }
 
@@ -33,7 +33,7 @@ namespace ManageCustomer.Backend.Models
         public string Mail { get; set; }
 
         //[StringLength(250)]
-        public string Bemerkung { get; set; }
+        public string Comment { get; set; }
 
         public bool Deleted { get; set; }
 
@@ -51,32 +51,20 @@ namespace ManageCustomer.Backend.Models
             {
                 string result = null;
 
-                if (columnName == "Vorname")
+                if (columnName == "Prename")
                 {
-                    if (string.IsNullOrEmpty(Vorname))
+                    if (string.IsNullOrEmpty(FirstName))
                     {
-                        result = "Es muss zwingend ein Vorname eingegeben werden";
+                        result = "A first name must be specified";
                     }
                 }
                 if (columnName == "Name")
                 {
                     if (string.IsNullOrEmpty(Name))
                     {
-                        result = "Es muss zwingend ein Name eingegeben werden";
+                        result = "A name must be specified";
                     }
                 }
-                //if (columnName == "Fax")
-                //{
-                //    try
-                //    {
-                //        var cleannumber = Fax.Trim();
-                //        var dbnumber = Convert.ToInt32(cleannumber);
-                //    }
-                //    catch (Exception)
-                //    {
-                //        result = "Die Nummer darf nur aus Zahlen bestehen";
-                //    }
-                //}
 
                 return result;
             }

@@ -111,7 +111,7 @@ namespace ManageCustomer.Frontend.Customer
             if (CheckIfOnlyOneCustomerIsSelected() == false) return;
             {
                 var cachedCustomer = GetSelcetedCustomer();
-                var extendedtext = "Kunde: " + cachedCustomer.Vorname + " " + cachedCustomer.Name;
+                var extendedtext = "Kunde: " + cachedCustomer.FirstName + " " + cachedCustomer.Name;
 
                 if (MetroMessageBox.Show("Achtung!", "Möchten Sie diesen Kunden wirklich löschen?", extendedtext, MetroMessageBox.MessageBoxButtons.YesNo) == MetroMessageBox.MessageBoxResults.Yes)
                 {
@@ -211,7 +211,7 @@ namespace ManageCustomer.Frontend.Customer
             {
                 if (!string.IsNullOrEmpty(_filterString))
                 {
-                    return data.Id.ToString().ToUpper().Contains(_filterString.ToUpper()) || data.Anrede.ToUpper().Contains(_filterString.ToUpper()) || data.Vorname.ToUpper().Contains(_filterString.ToUpper()) || data.Name.ToUpper().Contains(_filterString.ToUpper()) || data.Vorname.ToUpper().Contains(_filterString.ToUpper()) || data.Zusatz.ToUpper().Contains(_filterString.ToUpper()) || data.Firma.ToUpper().Contains(_filterString.ToUpper()) || data.Telefon.ToUpper().Contains(_filterString.ToUpper()) || data.Mobil.ToUpper().Contains(_filterString.ToUpper()) || data.Fax.ToUpper().Contains(_filterString.ToUpper()) || data.Mail.ToUpper().Contains(_filterString.ToUpper()) || data.Bemerkung.ToUpper().Contains(_filterString.ToUpper());
+                        return data.Id.ToString().ToUpper().Contains(_filterString.ToUpper()) || data.Salutation.ToUpper().Contains(_filterString.ToUpper()) || data.FirstName.ToUpper().Contains(_filterString.ToUpper()) || data.Name.ToUpper().Contains(_filterString.ToUpper()) || data.FirstName.ToUpper().Contains(_filterString.ToUpper()) || data.Addition.ToUpper().Contains(_filterString.ToUpper()) || data.Company.ToUpper().Contains(_filterString.ToUpper()) || data.Phone.ToUpper().Contains(_filterString.ToUpper()) || data.Mobil.ToUpper().Contains(_filterString.ToUpper()) || data.Fax.ToUpper().Contains(_filterString.ToUpper()) || data.Mail.ToUpper().Contains(_filterString.ToUpper()) || data.Comment.ToUpper().Contains(_filterString.ToUpper());
                 }
                 return true;
             }
@@ -237,9 +237,9 @@ namespace ManageCustomer.Frontend.Customer
 
             if (e.Column.Header.ToString().ToUpper() == "ID")
             {
-                e.Column.Header = "Kundennummer";
+                e.Column.Header = "Customer ID";
             }
-            if (e.Column.Header.ToString().ToUpper() == "ZUSATZ")
+            if (e.Column.Header.ToString().ToUpper() == "ADDITION")
             {
                 e.Cancel = true;
             }
@@ -247,7 +247,11 @@ namespace ManageCustomer.Frontend.Customer
             {
                 e.Cancel = true;
             }
-            if (e.Column.Header.ToString().ToUpper() == "BEMERKUNG")
+            if (e.Column.Header.ToString().ToUpper() == "COMPANY")
+            {
+                e.Cancel = true;
+            }
+            if (e.Column.Header.ToString().ToUpper() == "COMMENT")
             {
                 e.Cancel = true;
             }
@@ -292,7 +296,7 @@ namespace ManageCustomer.Frontend.Customer
 
         private void SetCustomerItemsCount()
         {
-            CustomerItemsCount.Text = "Einträge: " + CustomerDataGrid.Items.Count;
+            CustomerItemsCount.Text = "Entries: " + CustomerDataGrid.Items.Count;
         }
 
         private void SelectSingleItem()

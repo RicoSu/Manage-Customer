@@ -11,34 +11,34 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Style="{StaticResource UserControlMainStackPanelStyle}">
-            <Label Content="Adressen" Style="{DynamicResource UserControlTitelLabelStyle}"></Label>
+            <Label Content="Addresses" Style="{DynamicResource UserControlTitelLabelStyle}"></Label>
             <StackPanel Style="{StaticResource UserControlNewStackPanelStyle}">
                 <Button Name="NewAddressData" Style="{StaticResource UserControlBigButtonStyle}" Click="NewAddressData_OnClick">
                     <StackPanel Orientation="Vertical">
                         <Image Source="../../Backend/Icons/address_book-add2.png" Height="32" Width="32"></Image>
-                        <TextBlock Text="Neu" HorizontalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
+                        <TextBlock Text="New" HorizontalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
                     </StackPanel>
                 </Button>
-                <TextBlock Name="AddressItemsCount" Style="{StaticResource UserControlCountTextBlockStyle}">Einträge: 0</TextBlock>
+                <TextBlock Name="AddressItemsCount" Style="{StaticResource UserControlCountTextBlockStyle}">Entries: 0</TextBlock>
 
             </StackPanel>
-            <Label Content="Bearbeiten" Style="{StaticResource UserControlSubTitelLabelStyle}"></Label>
+            <Label Content="Editing" Style="{StaticResource UserControlSubTitelLabelStyle}"></Label>
             <Button Name="AddressDataView" Style="{StaticResource UserControlButtonStyle}"  Click="AddressDataView_OnClick">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="../../Backend/Icons/address_book-search.png" Style="{StaticResource UserControlImageStyle}"></Image>
-                    <TextBlock Text="Ansehen" VerticalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
+                    <TextBlock Text="View" VerticalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
                 </StackPanel>
             </Button>
             <Button Name="AddressDataEdit" Style="{StaticResource UserControlButtonStyle}"  Click="AddressDataEdit_OnClick">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Image Source="../../Backend/Icons/address_book-edit.png" Style="{StaticResource UserControlImageStyle}"></Image>
-                    <TextBlock Text="Bearbeiten" VerticalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
+                    <TextBlock Text="Edit" VerticalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
                 </StackPanel>
             </Button>
             <Button Name="DeleteAddress" Style="{StaticResource UserControlButtonStyle}" Margin="0,10,0,2" Click="DeleteAddress_OnClick">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                     <Image Source="../../Backend/Icons/address_book-remove2.png" Style="{StaticResource UserControlImageStyle}"></Image>
-                    <TextBlock Text="Löschen" VerticalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
+                    <TextBlock Text="Delete" VerticalAlignment="Center" Foreground="{DynamicResource MainBlackFontColor}"></TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>

@@ -77,16 +77,16 @@ namespace ManageCustomer.Frontend.Customer
             {
                 var customer = new Backend.Models.Customer
                 {
-                    Anrede = AnredeComboBox.Text,
-                    Vorname = VornameTextBox.Text,
+                    Salutation = AnredeComboBox.Text,
+                    FirstName = VornameTextBox.Text,
                     Name = NameTextBox.Text,
-                    Firma = FirmaTextBox.Text,
-                    Zusatz = ZusatzTextBox.Text,
+                    Company = FirmaTextBox.Text,
+                    Addition = ZusatzTextBox.Text,
                     Mobil = MobilTextBox.Text,
-                    Telefon = Telefon1TextBox.Text,
+                    Phone = Telefon1TextBox.Text,
                     Mail = Mail1TextBox.Text,
                     Fax = FaxTextBox.Text,
-                    Bemerkung = BemerkungTextBox.Text
+                    Comment = BemerkungTextBox.Text
                 };
 
                 if (_customerId == 0)
@@ -103,23 +103,23 @@ namespace ManageCustomer.Frontend.Customer
             }
             else
             {
-                MetroMessageBox.Show("Eingabefehler!", "Alle Pflichtfelder müssen richtig ausgefüllt werden!");
+                MetroMessageBox.Show("Error!", "All mandatory fields must be completed correctly!");
             }
         }
 
         private void SetTextBoxesText(int id)
         {
             var customerData = Database.GetSingelCustomerData(id);
-            AnredeComboBox.Text = customerData.Anrede;
-            VornameTextBox.Text = customerData.Vorname;
+            AnredeComboBox.Text = customerData.Salutation;
+            VornameTextBox.Text = customerData.FirstName;
             NameTextBox.Text = customerData.Name;
-            FirmaTextBox.Text = customerData.Firma;
-            ZusatzTextBox.Text = customerData.Zusatz;
+            FirmaTextBox.Text = customerData.Company;
+            ZusatzTextBox.Text = customerData.Addition;
             MobilTextBox.Text = customerData.Mobil;
-            Telefon1TextBox.Text = customerData.Telefon;
+            Telefon1TextBox.Text = customerData.Phone;
             Mail1TextBox.Text = customerData.Mail;
             FaxTextBox.Text = customerData.Fax;
-            BemerkungTextBox.Text = customerData.Bemerkung;
+            BemerkungTextBox.Text = customerData.Comment;
         }
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
