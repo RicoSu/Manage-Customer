@@ -19,7 +19,7 @@ Every customer can have multiple addresses. This is the reason why I don’t dis
 ![Normal Message Box](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBox.png)
 
 ## Message box with options
-![Normal Message Box](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBoxWithOptions.png)
+![Message Box with Options](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBoxWithOptions.png)
 
-## Normal message with options blank
-![Normal Message Box](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBoxWithOptions_blank.png)
+## Message with options blank
+![Message Box with Options blank](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBoxWithOptions_blank.png)
