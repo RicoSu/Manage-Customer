@@ -1,17 +1,25 @@
-# Login-Window
+# Manage Customer Data
 
-This is an example of how you can make a login window.
+(This project should be named Mange-Customer-Data. But now it's to late for that xD…)
+This is an example of how you can manage customr data.
 
-Change the display style in the code behind file to shop only one side of the window.
-Please note that for the local login you have to write some code that you can select a database in the combobox.
+What you should know from the beginning is that the data in this example is saved in the code. In real life, you have to store your data in a Database. I use Entity Framework for that. But it’s up to you how you would store your data.
 
-In the top right of the windows you find a button with some gears as image. Click on it and a new Window will pop up. In it you will see some System Information.
+This example shows you also other interesting stuff. As an example: When you open a new window it automatically drops a shadow over your main window. This prevents the user from making something in your main window. Also, I have built in a custom MetroBox and a custom MetroBox with additional options! Check them out.
+The next thing that I am very proud of is the search feature. I really don’t know if someone else would solve that problem the way I have done it, but I like it very much. The search feature searches in all columns and rows for your entered text and shows you the result right away. 
+Every customer can have multiple addresses. This is the reason why I don’t display any street name or something else in the main window.
 
-## Default View
-![Main Login](https://github.com/RicoSu/Login-Window/blob/master/LoginWindow.png)
+## Main window
+![Main Window](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MainWindow.png)
 
-## Only one side activated
-![Only one side active](https://github.com/RicoSu/Login-Window/blob/master/LoginWindow_LocalLogin.png)
+## Manage addresses with dropped shadow
+![Manage Addresses](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_ManageAddresses.png)
 
-## System Information Window
-![System Information](https://github.com/RicoSu/Login-Window/blob/master/SystemInformation.png)
+## Normal message box
+![Normal Message Box](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBox.png)
+
+## Message box with options
+![Normal Message Box](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBoxWithOptions.png)
+
+## Normal message with options blank
+![Normal Message Box](https://github.com/RicoSu/Manage-Customer/blob/master/ManageCustomers_MessageBoxWithOptions_blank.png)
