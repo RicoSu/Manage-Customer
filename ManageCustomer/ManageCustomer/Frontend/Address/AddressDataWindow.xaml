@@ -36,7 +36,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20,4,20,4">
                         <TextBlock Text="Street:" Style="{StaticResource DataWindowTextBoxStyle}" />
-                        <TextBox Name="StrasseTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Strasse, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
+                        <TextBox Name="StrasseTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Street, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
                         <TextBlock Text="HouseNumber:" Style="{StaticResource DataWindowTextBoxStyle}" />
                         <TextBox Name="HausnummerTextBox" Width="160" Margin="12,0,12,0"></TextBox>
                     </StackPanel>
@@ -44,7 +44,7 @@
                         <TextBlock Text="PostalCode:" Style="{StaticResource DataWindowTextBoxStyle}" />
                         <TextBox Name="PostleitzahlTextBox"  Width="160" Margin="12,0,12,0"></TextBox>
                         <TextBlock Text="Place:" Style="{StaticResource DataWindowTextBoxStyle}" />
-                        <TextBox Name="OrtTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Ort, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
+                        <TextBox Name="OrtTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Place, ValidatesOnDataErrors=true, NotifyOnValidationError=true}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="20,4,20,4">
                         <TextBlock Text="Country:" Style="{StaticResource DataWindowTextBoxStyle}" />

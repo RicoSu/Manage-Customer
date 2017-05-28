@@ -120,7 +120,7 @@ namespace ManageCustomer.Frontend.Address
             }
             else
             {
-                MetroMessageBox.Show("Eingabefehler!", "Alle Pflichtfelder müssen richtig ausgefüllt werden!");
+                MetroMessageBox.Show("Error!", "All mandatory fields must be completed correctly!");
             }
         }
 

@@ -41,7 +41,7 @@
                     <StackPanel Orientation="Horizontal" Margin="20,4,20,4">
                         <TextBlock Text="FirstName:" Style="{StaticResource DataWindowTextBoxStyle}" />
                         <!-- Required -->
-                        <TextBox Name="VornameTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Vorname, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" TabIndex="2"></TextBox>
+                        <TextBox Name="VornameTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=FirstName, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" TabIndex="2"></TextBox>
                         <TextBlock Text="Name:" Style="{StaticResource DataWindowTextBoxStyle}" />
                         <!-- Required -->
                         <TextBox Name="NameTextBox" Width="160" Margin="12,0,12,0" Validation.Error="Validation_Error" Text="{Binding UpdateSourceTrigger=PropertyChanged, Path=Name, ValidatesOnDataErrors=true, NotifyOnValidationError=true}" TabIndex="3"></TextBox>

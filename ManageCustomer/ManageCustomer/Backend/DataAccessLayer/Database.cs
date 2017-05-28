@@ -186,6 +186,11 @@ namespace ManageCustomer.Backend.DataAccessLayer
         {
             try
             {
+                // This would do the Dabase or Entity Framework
+                var maxId = AddressesTable.Select(item => item.Id).Concat(new[] { int.MinValue }).Max();
+                maxId = maxId + 1;
+
+                customerAddress.Id = maxId;
                 AddressesTable.Add(customerAddress);
             }
             catch (SqlException e)

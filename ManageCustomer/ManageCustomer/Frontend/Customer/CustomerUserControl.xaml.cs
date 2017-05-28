@@ -111,9 +111,9 @@ namespace ManageCustomer.Frontend.Customer
             if (CheckIfOnlyOneCustomerIsSelected() == false) return;
             {
                 var cachedCustomer = GetSelcetedCustomer();
-                var extendedtext = "Kunde: " + cachedCustomer.FirstName + " " + cachedCustomer.Name;
+                var extendedtext = "Customer: " + cachedCustomer.FirstName + " " + cachedCustomer.Name;
 
-                if (MetroMessageBox.Show("Achtung!", "Möchten Sie diesen Kunden wirklich löschen?", extendedtext, MetroMessageBox.MessageBoxButtons.YesNo) == MetroMessageBox.MessageBoxResults.Yes)
+                if (MetroMessageBox.Show("Attention!", "Are you sure you want to delete this customer?", extendedtext, MetroMessageBox.MessageBoxButtons.YesNo) == MetroMessageBox.MessageBoxResults.Yes)
                 {
                     Database.DeleteCustomer(GetSelcetedCustomer().Id);
                 }
@@ -127,14 +127,14 @@ namespace ManageCustomer.Frontend.Customer
         {
             if (CustomerDataGrid.SelectedItems.Count == 0)
             {
-                MetroMessageBox.Show("Auswahl falsch", "Wählen Sie zuerst einen Kunden aus.");
+                MetroMessageBox.Show("Wrong selection", "Select a customer first.");
                 SearchTextBox.Focus();
             }
             else
             {
                 if (CustomerDataGrid.SelectedItems.Count > 1)
                 {
-                    MetroMessageBox.Show("Auswahl falsch", "Wählen Sie nur 1 Kunde aus!");
+                    MetroMessageBox.Show("Wrong selection", "Select only 1 customer!");
                     SearchTextBox.Focus();
                 }
                 else

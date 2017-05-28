@@ -122,7 +122,7 @@ namespace ManageCustomer.Frontend.Address
         {
             if (AddressDataGrid.SelectedItems.Count == 0)
             {
-                MetroMessageBox.Show("Wrong selection", "First select an address.");
+                MetroMessageBox.Show("Wrong selection", "Delect an address first.");
             }
             else
             {
